@@ -49,13 +49,12 @@ Use the higher-order function called getYears to do the following:
 
 //receive data (fifaData)/ getFinalscb
 
-function getYears(fifaData, getFinals) {
-  const years = fifaData.map(function(item){
+function getYears(data, getFinalscb) {
+  const years = getFinalscb(data).map(function(item){
       return item.Year;
   })
-  return years;
     //map through finals cb to get all of the years (item.years)
-    
+    return years;
     //return the array
     /* code here */
 }
