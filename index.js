@@ -28,8 +28,8 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 //data - this will be the fifaData when you pass in your argument - this is an array
-function getFinals(fifaData) {
-    const finalsData = fifaData.filter(function(item){
+function getFinals(data) {
+    const finalsData = data.filter(function(item){
         return item.Stage === 'Final'
     });
     return finalsData;
@@ -38,7 +38,7 @@ function getFinals(fifaData) {
     //returning the array
    /* code here */
 }
-
+console.log('task 2', getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -71,7 +71,14 @@ Use the higher-order function getWinners to do the following:
 
 
 //2 parameters data (fifaData) / getFinalscb
-function getWinners(/* code here */) {
+function getWinners(data, getFinalscb) {
+     return getFinalscb(data).map(item =>{
+         if(item ['Home Team Goals'] > item['Away Team Goals']){
+             return item['Home Team Name'];
+             }else{
+                 return item['Away Team Name']
+             }
+         })
     // want an array of winners (comparing home and away team goals)
     /* code here */
 }
