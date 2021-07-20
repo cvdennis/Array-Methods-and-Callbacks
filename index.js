@@ -71,13 +71,14 @@ Use the higher-order function getWinners to do the following:
 
 //2 parameters data (fifaData) / getFinalscb
 function getWinners(data, getFinalscb) {
-     return getFinalscb(data).map(item =>{
+    const winners = getFinalscb(data).map(item =>{
          if(item ['Home Team Goals'] > item['Away Team Goals']){
              return item['Home Team Name'];
              }else{
                  return item['Away Team Name']
              }
          })
+         return winners;
     // want an array of winners (comparing home and away team goals)
     /* code here */
 }
@@ -95,10 +96,21 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 // probably use map
-function getWinnersByYear(/* code here */) {
+
+function getWinnersByYear(data, getYearscb, getWinnerscb) {
+    const winners = getWinnerscb(data, getFinals);
+    console.log('winners', winners);
+    const years = getYearscb(data, getFinals);
+    console.log('years', years);
+
+    return winners.map(function(item, index){
+        return `In ${years[index]}, ${item} won the world cup!`
+    })
+    // return winners.map((items, index) => `In ${years[index]}, ${item} won the world cup!`);
     /* code here */
 }
 
+console.log('task 5', getWinnersByYear(fifaData, getYears, getWinners));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -112,11 +124,15 @@ Use the higher order function getAverageGoals to do the following:
 // look up .toFixed
 
 
-function getAverageGoals(/* code here */) {
-   /* code here */
+function getAverageGoals(getFinalscb) {
+    //const averageTeamGoals = getFinalscb.reduce((acc, item)=> acc + item['Home Team Goals'] + item['Away Team Goals'], 0);
+   const averageTeamGoals = getFinalscb.reduce(function(acc, item){
+    return acc + item['Home Team Goals'] + item['Away Team Goals'];
+   }, 0);
+   return (averageTeamGoals / getFinalscb.length).toFixed(2);
 }
 
-
+console.log('task 6', getAverageGoals(getFinals(fifaData)));
 
 
 /// 🥅 STRETCH 🥅 ///
