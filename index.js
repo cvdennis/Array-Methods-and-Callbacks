@@ -83,7 +83,7 @@ function getWinners(data, getFinalscb) {
     /* code here */
 }
 
-
+console.log('task 4', getWinners(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -143,8 +143,10 @@ Create a function called `getCountryWins` that takes the parameters `data` and `
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
+function getCountryWins(data, initials) {
+    // const filteredArray = data.filter(item => initials === item['Home Team Initials'] || initials === item['Away Team Initials']);
+    // console.log(filteredArray);
+    // const worldcupwins = filteredArray.filter()
     /* code here */
 
 }
