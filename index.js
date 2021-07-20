@@ -27,9 +27,19 @@ Use getFinals to do the following:
 hint - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
+//data - this will be the fifaData when you pass in your argument - this is an array
+function getFinals(fifaData) {
+    const finalsData = fifaData.filter(function(item){
+        return item.Stage === 'Final'
+    });
+    return finalsData;
+    // filter here - to filter for the stage of final
+
+    //returning the array
    /* code here */
 }
+
+console.log('task2', getFinals);
 
 
 
@@ -39,7 +49,12 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function getFinals from task 2 
 3. Return an array called years containing all of the years in the getFinals data set*/
 
+
+//recieve data (fifaData)/ getFinalscb
 function getYears(/* code here */) {
+    //map through finals cb to get all of the years (item.years)
+
+    //return the array
     /* code here */
 }
 
@@ -52,7 +67,10 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
+
+//2 parameters data (fifaData) / getFinalscb
 function getWinners(/* code here */) {
+    // want an array of winners (comparing home and away team goals)
     /* code here */
 }
 
@@ -68,6 +86,7 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
+// probably use map
 function getWinnersByYear(/* code here */) {
     /* code here */
 }
@@ -78,11 +97,12 @@ function getWinnersByYear(/* code here */) {
 Use the higher order function getAverageGoals to do the following: 
  1. Receive the callback function getFinals from task 2 ensure you pass in the data as an argument
  2. Return the the average number of the total home team goals and away team goals scored per match and round to the second decimal place. 
- 
  (Hint: use .reduce and do this in 2 steps) 
  
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
+// look up .toFixed
+
 
 function getAverageGoals(/* code here */) {
    /* code here */
